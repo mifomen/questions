@@ -5,10 +5,10 @@
   "description": "Личный проект «Кекстаграм» от HTML Academy",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mifomen/lic28.git"
+    "url": "git@github.com:mifomen/questions.git"
   },
   "bugs": {
-    "url": "https://github.com/mifomen/lic28/issues"
+    "url": "https://github.com/mifomen/questions/issues"
   },
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "^1.0.0",
@@ -22,7 +22,7 @@
   "scripts": {
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"src/**/*.css\"",
-    "start": "browser-sync start --server --ss \"./src\" --no-notify --no-ui --files \"./src/**/*.*\" --browser \"google-chrome\"",
+    "start": "browser-sync start --ss src --server --no-ui --files \"src/**/*.*\"",
     "test": "eslint src/ && npm run editorconfig && npm run stylelint"
   },
   "editorconfig-cli": [
