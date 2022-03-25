@@ -1,0 +1,7 @@
+:root {
+  --basic-red: #ff0000;
+}
+
+h1 {
+  color: var(--basic-red);
+}
