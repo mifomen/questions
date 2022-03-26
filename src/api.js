@@ -7,3 +7,4 @@ const data = {
 console.log('tet123')
 console.log(`arrayAnswers=${data.arrayAnswers}`)
 console.log('start') //eslint-disable-line
+alert('23432')

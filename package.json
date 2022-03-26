@@ -12,9 +12,11 @@
   },
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "^1.0.0",
-    "browser-sync": "2.26.14",
+    "browser-sync": "^2.26.14",
     "eslint": "7.18.0",
     "eslint-config-htmlacademy": "4.1.0",
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
     "stylelint": "^14.5.3",
     "stylelint-config-htmlacademy": "^0.1.12"
   },
@@ -22,8 +24,9 @@
   "scripts": {
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"src/**/*.css\"",
-    "start": "browser-sync start --ss src --server --no-ui --files \"src/**/*.*\"",
-    "test": "eslint src/ && npm run editorconfig && npm run stylelint"
+    "start": "browser-sync start --ss \"./src\" --server --no-ui --files \"src/index.html\" --files \"src/style.css\" --files \"src/api.js\" --browser \"google-chrome\"",
+    "test": "eslint src/ && npm run editorconfig && npm run stylelint",
+    "test-g": "gulp serv"
   },
   "editorconfig-cli": [
     "src/**/*.json",
