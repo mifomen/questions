@@ -2,7 +2,7 @@
   "name": "liceum28nn",
   "version": "1.0.0",
   "private": true,
-  "description": "Личный проект «Кекстаграм» от HTML Academy",
+  "description": "Личный проект «Тестирование»",
   "repository": {
     "type": "git",
     "url": "git@github.com:mifomen/questions.git"
@@ -16,7 +16,6 @@
     "eslint": "7.18.0",
     "eslint-config-htmlacademy": "4.1.0",
     "gulp": "^4.0.2",
-    "gulp-plumber": "^1.2.1",
     "stylelint": "^14.5.3",
     "stylelint-config-htmlacademy": "^0.1.12"
   },
@@ -24,9 +23,9 @@
   "scripts": {
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"src/**/*.css\"",
-    "start": "browser-sync start --ss \"./src\" --server --no-ui --files \"src/index.html\" --files \"src/style.css\" --files \"src/api.js\" --browser \"google-chrome\"",
-    "test": "eslint src/ && npm run editorconfig && npm run stylelint",
-    "test-g": "gulp serv"
+    "start": "browser-sync start --ss \"./src\" --server --no-ui --files \"src/**/*.*\" --browser \"google-chrome\"",
+    "test": "eslint ./src/ && npm run editorconfig && npm run stylelint",
+    "test-gulp": "gulp serv"
   },
   "editorconfig-cli": [
     "src/**/*.json",
