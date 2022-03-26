@@ -48,6 +48,62 @@ const DATA = [
     questionAudio: 'name7',
     arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
   },
+  {
+    id: 8,
+    qustionText: 'qustionText8',
+    questionImg: 'test7',
+    questionAudio: 'name7',
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+  },
+  {
+    id: 9,
+    qustionText: 'qustionText9',
+    questionImg: 'test7',
+    questionAudio: 'name7',
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+  },
+  {
+    id: 10,
+    qustionText: 'qustionText10',
+    questionImg: 'test7',
+    questionAudio: 'name7',
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+  },
+  {
+    id: 11,
+    qustionText: 'qustionText11',
+    questionImg: 'test7',
+    questionAudio: 'name7',
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+  },
+  {
+    id: 12,
+    qustionText: 'qustionText12',
+    questionImg: 'test7',
+    questionAudio: 'name7',
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+  },
+  {
+    id: 13,
+    qustionText: 'qustionText13',
+    questionImg: 'test7',
+    questionAudio: 'name7',
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+  },
+  {
+    id: 14,
+    qustionText: 'qustionText14',
+    questionImg: 'test7',
+    questionAudio: 'name7',
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+  },
+  {
+    id: 15,
+    qustionText: 'qustionText15',
+    questionImg: 'test7',
+    questionAudio: 'name7',
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+  },
 ];
 
 
