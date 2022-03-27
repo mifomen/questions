@@ -1,20 +1,12 @@
-import { DATA } from './DATA.js';
+import { DATA,points } from './data.js';
+import { findItem,renderAnswerArray } from './utils.js'
 
 const fremeInitGame = document.querySelector('.js-init-game');
 
-const findItem = (items,resolve) => {
-  return items.find(item => item.id.toString() == resolve);
-}
 
 
-const renderAnswerArray = (parent, arrayAnswers) => {
-  for (let answer of arrayAnswers) {
-    const span = document.createElement('span');
-    span.className = 'answer';
-    span.textContent = answer;
-    parent.appendChild(span);
-  }
-};
+
+
 
 const countQuestionBar = (countItems) => {
   const ul = document.createElement('ul');

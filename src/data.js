@@ -1,4 +1,4 @@
-const DATA = [
+const DATA  =[
   {
     id: 1,
     qustionText: 'qustionTe xt1qustion Text1qustionText1q usti onText1qustionTe xt1qustionText1qus tionText1qustionText1qustionText 1qustionTe xt1qustio nText1qustionTe xt1qustionText1',
@@ -104,7 +104,9 @@ const DATA = [
     questionAudio: 'name7',
     arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
   },
-];
 
+]
 
-export {DATA}
+const points =  [{'1-3': 1}, {'4-7': 2}, {'8-11': 3}, {'12-15': 4}, {'16-17': 5} ]
+
+export {DATA, points}
