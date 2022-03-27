@@ -1,12 +1,10 @@
 import { DATA,points } from './data.js';
-import { findItem,getRandomInt,renderAnswerArray } from './utils.js'
+import { findItem,renderTextQuestion,renderAnswerArray,clearQuestionArea } from './utils.js'
 
 const fremeInitGame = document.querySelector('.js-init-game');
 
-console.log(getRandomInt(1,2));
-
-
-
+document.querySelector('body').onselectstart = 'return false';
+document.querySelector('body').onmousedown = 'return false';
 
 const countQuestionBar = (countItems) => {
   const ul = document.createElement('ul');
@@ -18,11 +16,14 @@ const countQuestionBar = (countItems) => {
   for (const countItem of countItems) {
     let obj;
 
-    const li = document.createElement('li');
-    li.className = 'progress-bar__item';
-    li.textContent = `${countItem.id}`;
-    // li.addEventListener('click',)
-    li.onclick = (evt) => {
+    const button = document.createElement('button');
+    button.className = 'progress-bar__item';
+    button.textContent = `${countItem.id}`;
+    button.onselectstart = 'return false';
+    button.onmousedown = 'return false'
+    // button.addEventListener('click',)
+    button.onclick = (evt) => {
+      // evt.target.disabled = 'true';
       if (
         evt.target.classList.contains('progress-bar__item') &&
         !evt.target.classList.contains('progress-bar__item--active')
@@ -39,34 +40,25 @@ const countQuestionBar = (countItems) => {
       }
 
       obj = findItem(DATA,evt.target.textContent);
-
-      const span = document.createElement('span');
-      span.className = 'question-text';
-      span.innerHTML = obj.qustionText;
-      fremeInitGame.appendChild(span);
-      if (document.querySelector('.area-choose-answer')) {
-        document.querySelector('.area-choose-answer').remove();
-      }
-      const div = document.createElement('div');
-      if (obj.arrayAnswers <= 4) {
-        div.className = 'area-choose-answer grid-3x3';
-      } else {
-        div.className = 'area-choose-answer grid-2x2';
-      }
-      fremeInitGame.appendChild(div);
-      renderAnswerArray(div, obj.arrayAnswers);
+      clearQuestionArea();
+      renderTextQuestion(fremeInitGame,obj);
+      renderAnswerArray(fremeInitGame, obj.arrayAnswers);
     };
 
     //here fucntio n gen answers
-    ul.appendChild(li);
+    ul.appendChild(button);
   }
   // console.log(`obj.arrayAnswers=${obj.arrayAnswers}`);
   // renderAnswerArray(ul,obj.arrayAnswers);
-  document
-    .querySelector('.progress-bar__item')
-    .classList.add('progress-bar__item--active');
+  document.querySelector('.progress-bar__item').classList.add('progress-bar__item--active');
+    // const value = '1';
+    // console.log(`findItem(DATA,1.toString())=${findItem(DATA,'1')}`)
 
-  // const span = document.createElement('span');
+    renderTextQuestion(fremeInitGame,findItem(DATA,'1'));
+    const divUl = document.querySelector('.progress-bar')
+    renderAnswerArray(fremeInitGame,findItem(DATA,'1').arrayAnswers);
+
+    // const span = document.createElement('span');
   // span.className = 'question-text';
   // span.innerHTML = countItems[0].qustionText;
   // ul.appendChild(span);

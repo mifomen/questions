@@ -1,10 +1,10 @@
 const DATA  =[
   {
     id: 1,
-    qustionText: 'qustionTe xt1qustion Text1qustionText1q usti onText1qustionTe xt1qustionText1qus tionText1qustionText1qustionText 1qustionTe xt1qustio nText1qustionTe xt1qustionText1',
-    questionImg: 'test1',
-    questionAudio: 'name1',
-    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4'],
+    qustionText: 'Какие высказывания относятся к определению компьютера?',
+    questionImg: '',
+    questionAudio: '',
+    arrayAnswers: ['универсальное устройство', 'устройство для работы с информацией', 'сложное устройство','программно упраавляемое устройство'],
   },
   {
     id: 2,

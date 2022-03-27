@@ -9,19 +9,87 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * ( max - min + 1 )) + min;
 };
 
-const shuffleArray = ( array   ) => {
-  array.sort(() => Math.random() - 0.5);
-};
-
-const renderAnswerArray = (parent, arrayAnswers) => {
-  const copyArrayAnswers = arrayAnswers;
-  shuffleArray(copyArrayAnswers);
-  for ( const answer of copyArrayAnswers ) {
-    const span = document.createElement('span');
-    span.className = 'answer';
-    span.textContent = answer;
-    parent.appendChild(span);
+const clearQuestionArea = () => {
+  if (document.querySelector('.area-choose-answer')) {
+    document.querySelector('.area-choose-answer').remove();
   }
+  if (document.querySelector('.question-text')) {
+    document.querySelector('.question-text').remove();
+  }
+}
+
+const renderTextQuestion = (parent,data) => {
+  const span = document.createElement('span');
+  span.className = 'question-text';
+  span.innerHTML = data.qustionText;
+  span.onselectstart = 'return false';
+  span.onmousedown = 'return false';
+  parent.appendChild(span);
+}
+
+const shuffleArray = ( basicArray ) => {
+  let newArr = new Array();
+  for (let elementBasicArray of basicArray ) {
+    newArr.push(elementBasicArray);
+  }
+  return newArr.sort(() => Math.random() - 0.5);
+  // return newArr;
 };
 
-export {findItem,getRandomInt,renderAnswerArray};
+// // установить значение для ключа
+// localStorage.test = 2;
+// // получить значение по ключу
+// alert( localStorage.test ); // 2
+// // удалить ключ
+// delete localStorage.test;
+
+const renderAnswerArray = (parent,item) => {
+  if (document.querySelector('.area-choose-answer')) {
+    document.querySelector('.area-choose-answer').remove();
+  }
+
+  const div = document.createElement('div');
+  div.classList.add('area-choose-answer');
+  if ( item.length <= 4) {
+    div.classList.add('grid-2x2');
+  } else {
+    div.classList.add('grid-3x3');
+  }
+
+  for ( const answer of shuffleArray(item) ) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'answer';
+    button.textContent = answer;
+    button.onselectstart="return false";
+    button.onmousedown="return false"
+
+    button.onclick = (evt) => {
+      evt.target.disabled = 'true';
+      document.querySelector('.question-text').remove();
+      document.querySelector('.area-choose-answer').remove();
+      document.querySelector('.progress-bar__item--active').disabled = 'true';
+
+      if ( item[0] === evt.target.textContent ) {
+        console.log(`item[0]=${item[0]}`);
+        console.log(`Вы выбрали 1 вариант ответа`);
+        localStorage.test = 2;
+      }
+
+      const allProgressItems = document.querySelectorAll('.progress-bar__item');
+      // console.log(`allProgressItem=${allProgressItem.length}`);
+      // allProgressItems[]
+
+      for ( let i=allProgressItems.length-1; i >=0; i--) {
+        allProgressItems[i].click()
+        // allProgressItems.style.cssText="background-color: black;"
+      }
+
+    };
+    div.appendChild(button);
+  }
+  parent.appendChild(div);
+
+};
+
+export {findItem,clearQuestionArea,renderTextQuestion,getRandomInt,renderAnswerArray};
