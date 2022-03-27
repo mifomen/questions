@@ -1,9 +1,9 @@
 import { DATA,points } from './data.js';
-import { findItem,renderAnswerArray } from './utils.js'
+import { findItem,getRandomInt,renderAnswerArray } from './utils.js'
 
 const fremeInitGame = document.querySelector('.js-init-game');
 
-
+console.log(getRandomInt(1,2));
 
 
 

@@ -11,7 +11,7 @@ const DATA  =[
     qustionText: 'qustionText2qustionText2qustionText2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2',
     questionImg: 'test2',
     questionAudio: 'name2',
-    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4', 'otet4'],
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4'],
   },
   {
     id: 3,
@@ -32,35 +32,35 @@ const DATA  =[
     qustionText: 'qustionText5',
     questionImg: 'test5',
     questionAudio: 'name5',
-    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4'],
   },
   {
     id: 6,
     qustionText: 'qustionText6',
     questionImg: 'test6',
     questionAudio: 'name6',
-    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4'],
   },
   {
     id: 7,
     qustionText: 'qustionText7',
     questionImg: 'test7',
     questionAudio: 'name7',
-    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4'],
   },
   {
     id: 8,
     qustionText: 'qustionText8',
     questionImg: 'test7',
     questionAudio: 'name7',
-    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4'],
   },
   {
     id: 9,
     qustionText: 'qustionText9',
     questionImg: 'test7',
     questionAudio: 'name7',
-    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
+    arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4'],
   },
   {
     id: 10,
@@ -105,8 +105,8 @@ const DATA  =[
     arrayAnswers: ['test', 'otvet2', 'otver3', 'otet4', 'otet4'],
   },
 
-]
+];
 
-const points =  [{'1-3': 1}, {'4-7': 2}, {'8-11': 3}, {'12-15': 4}, {'16-17': 5} ]
+const points =  [{'1-3': 1}, {'4-7': 2}, {'8-11': 3}, {'12-15': 4}, {'16-17': 5} ];
 
-export {DATA, points}
+export {DATA, points};
