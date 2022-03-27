@@ -2,6 +2,10 @@ const findItem = function (items,resolve) {
   return items.find( item => item.id.toString() === resolve );
 };
 
+const findItemByText = function (items,resolve) {
+  return items.find( item => item.qustionText.toString() === resolve );
+};
+
 const getRandomInt = (min, max) => {
   if (min >= max) {
     return Math.floor(Math.random() * ( min - max + 1 )) + max;
@@ -43,7 +47,8 @@ const shuffleArray = ( basicArray ) => {
 // // удалить ключ
 // delete localStorage.test;
 
-const renderAnswerArray = (parent,item) => {
+let i = 2;
+const renderAnswerArray = (data,parent,item) => {
   if (document.querySelector('.area-choose-answer')) {
     document.querySelector('.area-choose-answer').remove();
   }
@@ -65,26 +70,26 @@ const renderAnswerArray = (parent,item) => {
     button.onmousedown="return false"
 
     button.onclick = (evt) => {
-      evt.target.disabled = 'true';
-      document.querySelector('.question-text').remove();
-      document.querySelector('.area-choose-answer').remove();
+
+      clearQuestionArea();
       document.querySelector('.progress-bar__item--active').disabled = 'true';
 
       if ( item[0] === evt.target.textContent ) {
         console.log(`item[0]=${item[0]}`);
-        console.log(`Вы выбрали 1 вариант ответа`);
+        console.log(`Вы выбрали 1 вариант ответа и он верный`);
         localStorage.test = 2;
       }
-
       const allProgressItems = document.querySelectorAll('.progress-bar__item');
-      // console.log(`allProgressItem=${allProgressItem.length}`);
-      // allProgressItems[]
 
-      for ( let i=allProgressItems.length-1; i >=0; i--) {
-        allProgressItems[i].click()
-        // allProgressItems.style.cssText="background-color: black;"
+      allProgressItems[i].classList.add('progress-bar__item--active');
+
+      let obj = findItemByText(data,data[i].qustionText);
+      renderTextQuestion(document.querySelector('.js-init-game'),obj);
+      renderAnswerArray(data,document.querySelector('.js-init-game'), obj.arrayAnswers);
+      i++;
+      if (i >= allProgressItems.length) {
+        clearQuestionArea();
       }
-
     };
     div.appendChild(button);
   }
@@ -92,4 +97,4 @@ const renderAnswerArray = (parent,item) => {
 
 };
 
-export {findItem,clearQuestionArea,renderTextQuestion,getRandomInt,renderAnswerArray};
+export {findItem,clearQuestionArea,shuffleArray,renderTextQuestion,getRandomInt,renderAnswerArray};

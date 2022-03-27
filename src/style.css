@@ -95,9 +95,10 @@ h1 {
   background-color: transparent;
 }
 
-.progress-bar__item:disabled {
-  background-color: darkorange;
-}
+/* .progress-bar__item--next {
+  background-color: var(--basic-white);
+  color: var(--basic-black);
+} */
 
 
 .progress-bar__item:hover {
