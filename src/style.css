@@ -42,6 +42,8 @@ h1 {
   padding: 25px;
   border-radius: 20px;
   border: none;
+  text-align: center;
+  width: 65%;
 }
 
 .btn-start-test {
@@ -56,8 +58,12 @@ h1 {
 
 .btn-start-test:disabled {
   background-color: grey;
+}
 
-
+.btn-start-test:disabled:hover {
+  color: var(--baisc-white);
+  background-color: grey;
+  transition: 500ms;
 }
 .btn-start-test:hover {
   color: var(--basic-black);

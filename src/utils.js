@@ -51,6 +51,8 @@ const shuffleArray = ( basicArray ) => {
 // delete localStorage.test;
 
 let i = 1;
+
+const choosenAnswers = [];
 const renderAnswerArray = (data,parent,item) => {
   if (document.querySelector('.area-choose-answer')) {
     document.querySelector('.area-choose-answer').remove();
@@ -75,10 +77,16 @@ const renderAnswerArray = (data,parent,item) => {
     button.onclick = (evt) => {
       clearQuestionArea();
       document.querySelector('.progress-bar__item--active').disabled = 'true';
+
+      // localStorage.testValue = evt.target.textContent;
+      choosenAnswers.push(evt.target.textContent);
+
+
       if ( item[0] === evt.target.textContent ) {
         console.log(`item[0]=${item[0]}`);
         console.log('Вы выбрали 1 вариант ответа и он верный');
-        localStorage.test = 2;
+
+        // localStorage.testRightAnswer = evt.target.textContent;
       }
 
       const allProgressItems = document.querySelectorAll('.progress-bar__item');
@@ -89,9 +97,11 @@ const renderAnswerArray = (data,parent,item) => {
       renderAnswerArray(data,document.querySelector('.js-init-game'), obj.arrayAnswers);
       i++;
 
-      if (i > allProgressItems.length) {
+      if (i >= allProgressItems.length) {
         clearQuestionArea();
       }
+
+      console.log(`choosenAnswers=${choosenAnswers} \n length=${choosenAnswers.length}`);
     };
     div.appendChild(button);
   }
@@ -99,4 +109,23 @@ const renderAnswerArray = (data,parent,item) => {
 
 };
 
-export {findItem,clearQuestionArea,shuffleArray,renderTextQuestion,getRandomInt,renderAnswerArray};
+export {showLocal,findItem,clearQuestionArea,shuffleArray,renderTextQuestion,getRandomInt,renderAnswerArray};
+
+
+const showLocal = () => {
+    for (let key in localStorage) {
+      console.log(`key=${key}`)
+  }
+}
+
+
+
+// const show = () => {
+// let keys = Object.keys(localStorage);
+// for(let key of keys) {
+//   alert(`${key}: ${localStorage.getItem(key)}`);
+// }
+// }
+
+// show();
+// showLocal();
