@@ -1,7 +1,9 @@
-import { DATA,points } from './data.js';
-import { shuffleArray,findItem,renderTextQuestion,renderAnswerArray,clearQuestionArea } from './utils.js';
+import { points } from './data.js';
+import {getData,shuffleArray,findItem,renderTextQuestion,renderAnswerArray,clearQuestionArea } from './utils.js';
 
-const randomLineQuests = shuffleArray(DATA);
+
+
+let randomLineQuests = []; // = shuffleArray(DATA);
 const btnStartTest = document.querySelector('.btn-start-test');
 
 
@@ -27,7 +29,12 @@ const countQuestionBar = (countItems) => {
 
 const startGame = () => {
   document.querySelector('.frame-init-game').classList.add('hidden');
-  countQuestionBar(DATA);
+
+  getData((questionArray) => {
+    countQuestionBar(questionArray);
+
+    randomLineQuests = shuffleArray(questionArray);
+
   document.querySelector('.js-init-game').classList.remove('hidden');
   document.querySelector('.progress-bar__item').classList.add('progress-bar__item--active');
   const fremeInitGame = document.querySelector('.js-init-game');
@@ -40,6 +47,10 @@ const startGame = () => {
     localStorage.userName = document.querySelector('.tester-info').value;
   };
   // localStorage.userName
+  });
+
+  // countQuestionBar(DATA);
+
 };
 
 btnStartTest.addEventListener('click',startGame);

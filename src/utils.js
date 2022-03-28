@@ -109,23 +109,33 @@ const renderAnswerArray = (data,parent,item) => {
 
 };
 
-export {showLocal,findItem,clearQuestionArea,shuffleArray,renderTextQuestion,getRandomInt,renderAnswerArray};
 
 
 const showLocal = () => {
     for (let key in localStorage) {
       console.log(`key=${key}`)
+    }
   }
-}
 
 
 
-// const show = () => {
-// let keys = Object.keys(localStorage);
+  // const show = () => {
+    // let keys = Object.keys(localStorage);
 // for(let key of keys) {
-//   alert(`${key}: ${localStorage.getItem(key)}`);
-// }
-// }
+  //   alert(`${key}: ${localStorage.getItem(key)}`);
+  // }
+  // }
 
 // show();
 // showLocal();
+const DATA_GET_URL = './questions.json';
+
+const getData = (onSuccess) => {
+  fetch(DATA_GET_URL)
+    .then((response) => response.json())
+    .then((questionsArray) => {
+      onSuccess(questionsArray);
+    });
+};
+
+export {getData,showLocal,findItem,clearQuestionArea,shuffleArray,renderTextQuestion,getRandomInt,renderAnswerArray};
