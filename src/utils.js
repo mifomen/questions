@@ -13,6 +13,9 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * ( max - min + 1 )) + min;
 };
 
+
+
+
 const clearQuestionArea = () => {
   if (document.querySelector('.area-choose-answer')) {
     document.querySelector('.area-choose-answer').remove();
@@ -47,7 +50,7 @@ const shuffleArray = ( basicArray ) => {
 // // удалить ключ
 // delete localStorage.test;
 
-let i = 2;
+let i = 1;
 const renderAnswerArray = (data,parent,item) => {
   if (document.querySelector('.area-choose-answer')) {
     document.querySelector('.area-choose-answer').remove();
@@ -66,28 +69,27 @@ const renderAnswerArray = (data,parent,item) => {
     button.type = 'button';
     button.className = 'answer';
     button.textContent = answer;
-    button.onselectstart="return false";
-    button.onmousedown="return false"
+    button.onselectstart = 'return false';
+    button.onmousedown = 'return false';
 
     button.onclick = (evt) => {
-
       clearQuestionArea();
       document.querySelector('.progress-bar__item--active').disabled = 'true';
-
       if ( item[0] === evt.target.textContent ) {
         console.log(`item[0]=${item[0]}`);
-        console.log(`Вы выбрали 1 вариант ответа и он верный`);
+        console.log('Вы выбрали 1 вариант ответа и он верный');
         localStorage.test = 2;
       }
-      const allProgressItems = document.querySelectorAll('.progress-bar__item');
 
+      const allProgressItems = document.querySelectorAll('.progress-bar__item');
       allProgressItems[i].classList.add('progress-bar__item--active');
 
       let obj = findItemByText(data,data[i].qustionText);
       renderTextQuestion(document.querySelector('.js-init-game'),obj);
       renderAnswerArray(data,document.querySelector('.js-init-game'), obj.arrayAnswers);
       i++;
-      if (i >= allProgressItems.length) {
+
+      if (i > allProgressItems.length) {
         clearQuestionArea();
       }
     };

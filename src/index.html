@@ -8,10 +8,12 @@
     <title>Test</title>
   </head>
   <body class="page-body"">
-    <div class="frame-init-game hidden">
-      <button class="btn-start-test" type="button">Начать тест</button>
-    </div>
-    <div class="frame-start-game js-init-game"></div>
+    <form class="frame-init-game">
+      <label class="label__tester-info" for="tester-info">Введите свою фамилию и имя</label>
+      <input autocomplete="off" placeholder="Горемыка Иван" id="tester-info" type="text" class="tester-info" maxlength="35">
+      <button disabled class="btn-start-test js-btn-start" type="button">Начать тест</button>
+    </form>
+    <div class="frame-start-game js-init-game hidden"></div>
     <script src="api.js" type="module"></script>
   </body>
 </html>

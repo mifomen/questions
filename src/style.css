@@ -31,16 +31,34 @@ h1 {
   box-sizing: border-box;
 }
 
+.label__tester-info {
+  font-size: 32px;
+  margin-bottom: 3%;
+}
+
+.tester-info {
+  font-size: 32px;
+  margin-bottom: 3%;
+  padding: 25px;
+  border-radius: 20px;
+  border: none;
+}
+
 .btn-start-test {
   border: 5px solid var(--basic-white);
   background-color: transparent;
-  color: white;
-  font-size: 48px;
+  color: var(--baisc-white);
+  font-size: 32px;
   border-radius: 20px;
-  padding: 5%;
+  padding: 25px 35px;
   transition: 500ms;
 }
 
+.btn-start-test:disabled {
+  background-color: grey;
+
+
+}
 .btn-start-test:hover {
   color: var(--basic-black);
   background-color: var(--basic-white);
@@ -57,8 +75,10 @@ h1 {
 
 .frame-init-game {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .frame-start-game {
