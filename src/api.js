@@ -1,5 +1,5 @@
-import { points } from './data.js';
-import {getData,shuffleArray,findItem,renderTextQuestion,renderAnswerArray,clearQuestionArea } from './utils.js';
+// import { points } from './data.js';
+import { getData, shuffleArray, findItem, renderTextQuestion, renderAnswerArray, clearQuestionArea } from './utils.js';
 
 
 
@@ -15,7 +15,7 @@ const countQuestionBar = (countItems) => {
     document.querySelector('.js-init-game').appendChild(ul);
   }
 
-  for (let j=1; j<= randomLineQuests.length; j++) {
+  for (let j = 1; j <= randomLineQuests.length; j++) {
     const button = document.createElement('button');
     button.className = 'progress-bar__item';
     button.textContent = j;
@@ -31,29 +31,27 @@ const startGame = () => {
   document.querySelector('.frame-init-game').classList.add('hidden');
 
   getData((questionArray) => {
-    countQuestionBar(questionArray);
-
     randomLineQuests = shuffleArray(questionArray);
+    countQuestionBar(questionArray);
+    console.log(`randomLineQuests=${randomLineQuests[0].qustionText}`);
 
-  document.querySelector('.js-init-game').classList.remove('hidden');
-  document.querySelector('.progress-bar__item').classList.add('progress-bar__item--active');
-  const fremeInitGame = document.querySelector('.js-init-game');
-  renderTextQuestion(fremeInitGame,randomLineQuests[0]);
-  const divUl = document.querySelector('.progress-bar'); //render 1 question
-  renderAnswerArray(randomLineQuests,fremeInitGame,randomLineQuests[0].arrayAnswers);
 
-  if (!localStorage.userName) {
+    document.querySelector('.js-init-game').classList.remove('hidden');
 
-    localStorage.userName = document.querySelector('.tester-info').value;
-  };
-  // localStorage.userName
+    document.querySelector('.progress-bar__item').classList.add('progress-bar__item--active');
+    const fremeInitGame = document.querySelector('.js-init-game');
+    renderTextQuestion(fremeInitGame, randomLineQuests[0]);
+    // const divUl = document.querySelector('.progress-bar'); //render 1 question
+    renderAnswerArray(randomLineQuests, fremeInitGame, randomLineQuests[0].arrayAnswers);
+
+    // if (!localStorage.userName) {
+    //   localStorage.userName = document.querySelector('.tester-info').value;
+    // };
   });
-
-  // countQuestionBar(DATA);
 
 };
 
-btnStartTest.addEventListener('click',startGame);
+btnStartTest.addEventListener('click', startGame);
 
 
 document.querySelector('body').onselectstart = 'return false';
@@ -61,14 +59,14 @@ document.querySelector('body').onmousedown = 'return false';
 
 const stateBtnStartTest = (value) => {
   const btn = document.querySelector('.js-btn-start');
-  if (value > 0 ) {
+  if (value > 0) {
     btn.disabled = false;
   } else {
     btn.disabled = true;
   }
 };
 
-const valueToArray = function(item) {
+const valueToArray = function (item) {
   return item.value.split(' ');
 };
 
@@ -81,8 +79,8 @@ const testName = (item) => {
 };
 
 const checkEveryName = (item) => {
-  if ( item.length > 3 ) {
-    return(valueToArray(item).every(testName));
+  if (item.length > 3) {
+    return (valueToArray(item).every(testName));
   }
 };
 
@@ -93,7 +91,7 @@ inputTesterName.addEventListener('input', () => {
 
 
 
-  if ( valueToArray(inputTesterName).length >= 2 && valueToArray(inputTesterName)[1].length >= 2 ) {
+  if (valueToArray(inputTesterName).length >= 2 && valueToArray(inputTesterName)[1].length >= 2) {
     inputTesterName.value = inputTesterName.value.trim();
     document.querySelector('.js-btn-start').disabled = false;
   } else {
