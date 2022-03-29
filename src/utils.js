@@ -48,8 +48,7 @@ const shuffleArray = (basicArray) => {
 // // удалить ключ
 // delete localStorage.test;
 
-let i = 0;
-
+let i = 1;
 const choosenAnswers = [];
 const renderAnswerArray = (data, parent, item) => {
   if (document.querySelector('.area-choose-answer')) {
@@ -72,29 +71,26 @@ const renderAnswerArray = (data, parent, item) => {
     button.onselectstart = 'return false';
     button.onmousedown = 'return false';
 
+    const allProgressItems = document.querySelectorAll('.progress-bar__item');
     button.onclick = (evt) => {
       document.querySelector('.progress-bar__item--active').disabled = 'true';
-      // localStorage.testValue = evt.target.textContent;
       choosenAnswers.push(evt.target.textContent);
       clearQuestionArea();
-      const allProgressItems = document.querySelectorAll('.progress-bar__item');
-
-      console.log(`i=${i} allProgressItems.length=${allProgressItems.length} allProgressItems=${allProgressItems[0]}`);
-
-      // if (i !== allProgressItems.length) {
+      // console.log(`i=${i} allProgressItems.length=${allProgressItems.length} allProgressItems=${allProgressItems[0]}`);
+      // allProgressItems[i].classList.add('progress-bar__item--active');
+      if (i < allProgressItems.length) {
         allProgressItems[i].classList.add('progress-bar__item--active');
         let obj = findItemByText(data, data[i].qustionText);
         renderTextQuestion(document.querySelector('.js-init-game'), obj);
         renderAnswerArray(data, document.querySelector('.js-init-game'), obj.arrayAnswers);
-      // }
-
-      if (i >= allProgressItems.length) {
-        clearQuestionArea();
+      }
+      i++;
+      if ( allProgressItems.length + 1 == i ) {
+        // clearQuestionArea();
         showAnswers(data, choosenAnswers);
       }
-
-
-      i++;
+      console.log(`index=${i} data.length = ${data.length}`);
+      console.log(`index=${i} data.length = ${data.length}`);
     }
 
     div.appendChild(button);
@@ -130,21 +126,15 @@ const showAnswers = (arrayRightAnswer, arrayGetAnswer) => {
   div.onmousedown = 'return false';
 
 
-  for (let i = 0; i <= arrayGetAnswer.length; i++) {
+  for (let i = 0; i < arrayGetAnswer.length; i++) {
     const spanElement = document.createElement('span');
     spanElement.classList.add('resaultAnswer');
     spanElement.onselectstart = 'return false';
     spanElement.onmousedown = 'return false';
 
-    // console.log(`arrayGetAnswer.length=${arrayGetAnswer.length}`);
-    // console.log(`'arrayRightAnswer[0]=${arrayRightAnswer[0]} arrayRightAnswer[15]=${arrayRightAnswer[15]}`)
-
-    // console.log(`arrayRightAnswer.length=${arrayRightAnswer.length}`);
-
-    if (choosenAnswers[i] === arrayRightAnswer[i].arrayAnswers[1]) {
-      // console.log(`i=${i} === solve right`);
+    if (choosenAnswers[i] === arrayRightAnswer[i].arrayAnswers[0]) {
       spanElement.classList.add('rightResaultAnswer');
-      spanElement.innerHTML = `В вопросе №${i + 1}. Ваш ответ правильный:   <span class="corrent-answer">${arrayRightAnswer[i].arrayAnswers[1]}</span>`;
+      spanElement.innerHTML = `В вопросе №${i + 1}. Ваш ответ правильный:   <span class="corrent-answer">${arrayRightAnswer[i].arrayAnswers[0]}</span>`;
     } else {
       spanElement.classList.add('loseResaultAnswer');
       spanElement.innerHTML = `В вопросе №${i + 1}. Ваш ответ неправильный:  <span class="not-corrent-answer">${arrayGetAnswer[i]}</span>`;

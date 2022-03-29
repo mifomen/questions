@@ -15,9 +15,10 @@ const countQuestionBar = (countItems) => {
     document.querySelector('.js-init-game').appendChild(ul);
   }
 
-  for (let j = 1; j <= randomLineQuests.length; j++) {
+  for (let j = 1; j <= countItems.length; j++) {
     const button = document.createElement('button');
     button.className = 'progress-bar__item';
+
     button.textContent = j;
     button.onselectstart = 'return false';
     button.onmousedown = 'return false'
@@ -32,8 +33,8 @@ const startGame = () => {
 
   getData((questionArray) => {
     randomLineQuests = shuffleArray(questionArray);
-    countQuestionBar(questionArray);
-    console.log(`randomLineQuests=${randomLineQuests[0].qustionText}`);
+    countQuestionBar(randomLineQuests);
+    console.log(`randomLineQuests.length=${randomLineQuests.length} randomLineQuests=${randomLineQuests}`);
 
 
     document.querySelector('.js-init-game').classList.remove('hidden');
