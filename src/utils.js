@@ -41,12 +41,12 @@ const shuffleArray = (basicArray) => {
   // return newArr;
 };
 
-// // установить значение для ключа
-// localStorage.test = 2;
-// // получить значение по ключу
-// alert( localStorage.test ); // 2
-// // удалить ключ
-// delete localStorage.test;
+////  установить значение для ключа
+//// localStorage.test = 2;
+//// // получить значение по ключу
+//// alert( localStorage.test ); // 2
+//// удалить ключ
+//// delete localStorage.test;
 
 let i = 1;
 const choosenAnswers = [];
@@ -86,11 +86,8 @@ const renderAnswerArray = (data, parent, item) => {
       }
       i++;
       if ( allProgressItems.length + 1 == i ) {
-        // clearQuestionArea();
         showAnswers(data, choosenAnswers);
       }
-      console.log(`index=${i} data.length = ${data.length}`);
-      console.log(`index=${i} data.length = ${data.length}`);
     }
 
     div.appendChild(button);
@@ -106,7 +103,6 @@ const showLocal = () => {
 };
 
 const DATA_GET_URL = './questions.json';
-
 const getData = (onSuccess) => {
   fetch(DATA_GET_URL)
     .then((response) => response.json())
@@ -115,16 +111,13 @@ const getData = (onSuccess) => {
     });
 };
 
-
+let pointsTesting = 0;
 const showAnswers = (arrayRightAnswer, arrayGetAnswer) => {
-
   document.querySelector('.js-init-game').classList.add('hidden');
-
   const div = document.createElement('div');
   div.className = 'frame-resault-game';
   div.onselectstart = 'return false';
   div.onmousedown = 'return false';
-
 
   for (let i = 0; i < arrayGetAnswer.length; i++) {
     const spanElement = document.createElement('span');
@@ -135,25 +128,22 @@ const showAnswers = (arrayRightAnswer, arrayGetAnswer) => {
     if (choosenAnswers[i] === arrayRightAnswer[i].arrayAnswers[0]) {
       spanElement.classList.add('rightResaultAnswer');
       spanElement.innerHTML = `В вопросе №${i + 1}. Ваш ответ правильный:   <span class="corrent-answer">${arrayRightAnswer[i].arrayAnswers[0]}</span>`;
+      pointsTesting++
     } else {
       spanElement.classList.add('loseResaultAnswer');
       spanElement.innerHTML = `В вопросе №${i + 1}. Ваш ответ неправильный:  <span class="not-corrent-answer">${arrayGetAnswer[i]}</span>`;
     }
-
     div.appendChild(spanElement);
   }
+  console.log(`pointsTesting=${pointsTesting}`)
 
-
+  const spanElement = document.createElement('span');
+  spanElement.classList.add('resaultAnswer');
+  spanElement.onselectstart = 'return false';
+  spanElement.onmousedown = 'return false';
+  spanElement.innerHTML=`${pointsTesting} баллов из ${choosenAnswers.length}`;
+  div.appendChild(spanElement);
   document.body.appendChild(div);
-
-  console.log(`choosenAnswers=${choosenAnswers[0]} choosenAnswers.length=${choosenAnswers.length}`);
-  // console.log(`arrayGetAnswer=${arrayGetAnswer} arrayGetAnswer.length=${arrayGetAnswer.length}`);
-  // console.log(`arrayRightAnswer=${arrayRightAnswer} arrayRightAnswer.length=${arrayRightAnswer.length}`);
-
-
-
-  // console.log(`arrayRightAnswer=${arrayRightAnswer.arrayAnswers[1]}`);
-
 };
 
 

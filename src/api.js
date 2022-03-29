@@ -34,7 +34,7 @@ const startGame = () => {
   getData((questionArray) => {
     randomLineQuests = shuffleArray(questionArray);
     countQuestionBar(randomLineQuests);
-    console.log(`randomLineQuests.length=${randomLineQuests.length} randomLineQuests=${randomLineQuests}`);
+    // console.log(`randomLineQuests.length=${randomLineQuests.length} randomLineQuests=${randomLineQuests}`);
 
 
     document.querySelector('.js-init-game').classList.remove('hidden');
