@@ -1,7 +1,5 @@
 // import { points } from './data.js';
-import { getData, shuffleArray, findItem, renderTextQuestion, renderAnswerArray, clearQuestionArea } from './utils.js';
-
-
+import { getData, renderTextQuestion, shuffleArray, renderAnswerArray } from './utils.js';
 
 let randomLineQuests = []; // = shuffleArray(DATA);
 const btnStartTest = document.querySelector('.btn-start-test');
@@ -29,7 +27,6 @@ const countQuestionBar = (countItems) => {
 
 let DATA_GET_URL = './questions1.json';
 
-
 const allBtns = document.querySelectorAll('.js-btn-start');
 for (const allBtn of allBtns) {
   allBtn.addEventListener('click', (evt) => {
@@ -50,28 +47,16 @@ const startGame = () => {
   getData((questionArray) => {
     randomLineQuests = shuffleArray(questionArray);
     countQuestionBar(randomLineQuests);
-    // console.log(`randomLineQuests.length=${randomLineQuests.length} randomLineQuests=${randomLineQuests}`);
-
-
     document.querySelector('.js-init-game').classList.remove('hidden');
-
     document.querySelector('.progress-bar__item').classList.add('progress-bar__item--active');
     const fremeInitGame = document.querySelector('.js-init-game');
     renderTextQuestion(fremeInitGame, randomLineQuests[0]);
     // const divUl = document.querySelector('.progress-bar'); //render 1 question
     renderAnswerArray(randomLineQuests, fremeInitGame, randomLineQuests[0].arrayAnswers);
 
-
-
-    // if (!localStorage.userName) {
-    //   localStorage.userName = document.querySelector('.tester-info').value;
-    // };
   });
 
 };
-
-
-
 
 document.querySelector('body').onselectstart = 'return false';
 document.querySelector('body').onmousedown = 'return false';
@@ -107,8 +92,6 @@ const inputTesterName = document.querySelector('.tester-info');
 inputTesterName.focus();
 inputTesterName.addEventListener('input', () => {
   const valueLength = inputTesterName.value.length;
-
-
 
   if (valueToArray(inputTesterName).length >= 2 && valueToArray(inputTesterName)[1].length >= 2) {
     inputTesterName.value = inputTesterName.value.trim();
