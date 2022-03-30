@@ -29,16 +29,17 @@ const countQuestionBar = (countItems) => {
 
 let DATA_GET_URL = './questions1.json';
 
+
+const allBtns = document.querySelectorAll('.js-btn-start');
+for (const allBtn of allBtns) {
+  allBtn.addEventListener('click', (evt) => {
+    DATA_GET_URL = allBtn.dataset.nameTest;
+    startGame();
+  })
+}
+
 const startGame = () => {
   document.querySelector('.frame-init-game').classList.add('hidden');
-
-  const allBtns = document.querySelectorAll('.js-btn-start');
-  for (const allBtn of allBtns) {
-    allBtn.addEventListener('click', {
-      DATA_GET_URL = allBtn.getAttribute('data-name-test')
-    })
-  }
-
   if (document.querySelector('.tester-info').value =='') {
     localStorage.userName = document.querySelector('.tester-info').placeholder
   } else {
@@ -69,7 +70,7 @@ const startGame = () => {
 
 };
 
-btnStartTest.addEventListener('click', startGame);
+
 
 
 document.querySelector('body').onselectstart = 'return false';
