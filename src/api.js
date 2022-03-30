@@ -27,9 +27,24 @@ const countQuestionBar = (countItems) => {
   }
 };
 
+let DATA_GET_URL = './questions1.json';
 
 const startGame = () => {
   document.querySelector('.frame-init-game').classList.add('hidden');
+
+  const allBtns = document.querySelectorAll('.js-btn-start');
+  for (const allBtn of allBtns) {
+    allBtn.addEventListener('click', {
+      DATA_GET_URL = allBtn.getAttribute('data-name-test')
+    })
+  }
+
+  if (document.querySelector('.tester-info').value =='') {
+    localStorage.userName = document.querySelector('.tester-info').placeholder
+  } else {
+    localStorage.userName = document.querySelector('.tester-info').value;
+  }
+
 
   getData((questionArray) => {
     randomLineQuests = shuffleArray(questionArray);
@@ -44,6 +59,8 @@ const startGame = () => {
     renderTextQuestion(fremeInitGame, randomLineQuests[0]);
     // const divUl = document.querySelector('.progress-bar'); //render 1 question
     renderAnswerArray(randomLineQuests, fremeInitGame, randomLineQuests[0].arrayAnswers);
+
+
 
     // if (!localStorage.userName) {
     //   localStorage.userName = document.querySelector('.tester-info').value;
@@ -102,3 +119,6 @@ inputTesterName.addEventListener('input', () => {
 
   inputTesterName.reportValidity();
 });
+
+
+export { DATA_GET_URL}

@@ -1,3 +1,5 @@
+import {DATA_GET_URL} from './api.js';
+
 const findItem = function (items, resolve) {
   return items.find(item => item.id.toString() === resolve);
 };
@@ -102,7 +104,9 @@ const showLocal = () => {
   }
 };
 
-const DATA_GET_URL = './questions.json';
+
+
+
 const getData = (onSuccess) => {
   fetch(DATA_GET_URL)
     .then((response) => response.json())
@@ -131,17 +135,18 @@ const showAnswers = (arrayRightAnswer, arrayGetAnswer) => {
       pointsTesting++
     } else {
       spanElement.classList.add('loseResaultAnswer');
-      spanElement.innerHTML = `В вопросе №${i + 1}. Ваш ответ неправильный:  <span class="not-corrent-answer">${arrayGetAnswer[i]}</span>`;
+      spanElement.innerHTML = `В вопросе №${i + 1}. Ваш ответ &nbsp <span class="red">неправильный</span>:&nbsp<span class="not-corrent-answer">${arrayGetAnswer[i]}</span>`;
     }
     div.appendChild(spanElement);
   }
-  console.log(`pointsTesting=${pointsTesting}`)
+  // console.log(`pointsTesting=${pointsTesting}`)
+  localStorage.pointsTesting = pointsTesting;
 
   const spanElement = document.createElement('span');
   spanElement.classList.add('resaultAnswer');
   spanElement.onselectstart = 'return false';
   spanElement.onmousedown = 'return false';
-  spanElement.innerHTML=`${pointsTesting} баллов из ${choosenAnswers.length}`;
+  spanElement.innerHTML=`${localStorage.userName} получил:<br>${pointsTesting} баллов из ${choosenAnswers.length}`;
   div.appendChild(spanElement);
   document.body.appendChild(div);
 };
