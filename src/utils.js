@@ -141,6 +141,7 @@ const showAnswers = (arrayRightAnswer, arrayGetAnswer) => {
   }
   // console.log(`pointsTesting=${pointsTesting}`)
   localStorage.pointsTesting = pointsTesting;
+  localStorage.pointsLength = arrayGetAnswer.length;
 
   const spanElement = document.createElement('span');
   spanElement.classList.add('resaultAnswer');
