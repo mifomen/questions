@@ -1,6 +1,12 @@
 // import { points } from './data.js';
 import { getData, renderTextQuestion, shuffleArray, renderAnswerArray } from './utils.js';
 
+
+const template = /^\D\D\s\D\D\s?\d\D/;
+
+const name = 'Горемыка Иван 11А';
+console.log(`template.test(name)=${template.test(name)}`)
+
 let randomLineQuests = []; // = shuffleArray(DATA);
 const btnStartTest = document.querySelector('.btn-start-test');
 
@@ -61,12 +67,10 @@ const startGame = () => {
 document.querySelector('body').onselectstart = 'return false';
 document.querySelector('body').onmousedown = 'return false';
 
-const stateBtnStartTest = (value) => {
-  const btn = document.querySelector('.js-btn-start');
-  if (value > 0) {
-    btn.disabled = false;
-  } else {
-    btn.disabled = true;
+const btnStartDisabled = (state) => {
+  const btns = document.querySelectorAll('.js-btn-start');
+  for (const btn of btns) {
+      btn.disabled = state;
   }
 };
 
@@ -95,9 +99,11 @@ inputTesterName.addEventListener('input', () => {
 
   if (valueToArray(inputTesterName).length >= 2 && valueToArray(inputTesterName)[1].length >= 2) {
     inputTesterName.value = inputTesterName.value.trim();
-    document.querySelector('.js-btn-start').disabled = false;
+    btnStartDisabled(false);
+    // document.querySelector('.js-btn-start').disabled = false;
   } else {
-    document.querySelector('.js-btn-start').disabled = true;
+    btnStartDisabled(true);
+    // document.querySelector('.js-btn-start').disabled = true;
     inputTesterName.setCustomValidity('Должно быть только фамилия и имя, 2 слова');
   }
 
