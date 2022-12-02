@@ -15,7 +15,8 @@ h1 {
 *::after,
 *::before {
   box-sizing: padding-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'JetBrains Mono','Times New Roman', 'Roboto', arial;
+  font-weight: 600;
 }
 
 .hidden {
@@ -229,20 +230,25 @@ h1 {
 
 }
 
-.red {
-text-decoration: underline;
+.wrongAnswer {
+  text-decoration: underline;
+  font-weight: bold;
 }
-.rightResaultAnswer {
 
-
+.rightResaultAnswer
 .loseResaultAnswer {
+  font-size: 16px;
+}
 
+.resaultPointsForTest {
+  grid-column-start: 1;
+  grid-column-end: -1;
 }
 
 .corrent-answer {
   text-decoration: underline;
 }
-}
+
 
 .not-corrent-answer {
   text-decoration-line: line-through;

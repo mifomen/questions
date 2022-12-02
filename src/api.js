@@ -4,8 +4,10 @@ import { getData, renderTextQuestion, shuffleArray, renderAnswerArray } from './
 
 const template = /^\D\D\s\D\D\s?\d\D/;
 
-const name = 'Горемыка Иван 11А';
-console.log(`template.test(name)=${template.test(name)}`)
+const testerName = 'Горемыка Иван 11А';
+document.querySelector('.tester-info').placeholder=`${testerName}`;
+document.querySelector('.tester-info').value=`${testerName}`;
+// console.log(`template.test(testerName)=${template.test(testerName)}`);
 
 let randomLineQuests = []; // = shuffleArray(DATA);
 const btnStartTest = document.querySelector('.btn-start-test');
@@ -25,25 +27,16 @@ const countQuestionBar = (countItems) => {
 
     button.textContent = j;
     button.onselectstart = 'return false';
-    button.onmousedown = 'return false'
+    button.onmousedown = 'return false';
     button.disabled = 'true';
     ul.appendChild(button);
   }
 };
 
-let DATA_GET_URL = './questions1.json';
-
-const allBtns = document.querySelectorAll('.js-btn-start');
-for (const allBtn of allBtns) {
-  allBtn.addEventListener('click', (evt) => {
-    DATA_GET_URL = allBtn.dataset.nameTest;
-    startGame();
-  })
-}
 
 const startGame = () => {
   document.querySelector('.frame-init-game').classList.add('hidden');
-  if (document.querySelector('.tester-info').value =='') {
+  if (document.querySelector('.tester-info').value === '') {
     localStorage.userName = document.querySelector('.tester-info').placeholder
   } else {
     localStorage.userName = document.querySelector('.tester-info').value;
@@ -64,13 +57,24 @@ const startGame = () => {
 
 };
 
+let DATA_GET_URL = './questions1.json';
+
+const allBtns = document.querySelectorAll('.js-btn-start');
+for (const allBtn of allBtns) {
+  allBtn.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    DATA_GET_URL = allBtn.dataset.nameTest;
+    startGame();
+  });
+}
+
 document.querySelector('body').onselectstart = 'return false';
 document.querySelector('body').onmousedown = 'return false';
 
 const btnStartDisabled = (state) => {
   const btns = document.querySelectorAll('.js-btn-start');
   for (const btn of btns) {
-      btn.disabled = state;
+    btn.disabled = state;
   }
 };
 
@@ -111,4 +115,4 @@ inputTesterName.addEventListener('input', () => {
 });
 
 
-export { DATA_GET_URL}
+export { DATA_GET_URL };

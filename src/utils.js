@@ -1,11 +1,11 @@
 import {DATA_GET_URL} from './api.js';
 
 const findItem = function (items, resolve) {
-  return items.find(item => item.id.toString() === resolve);
+  return items.find( item => item.id.toString() === resolve);
 };
 
 const findItemByText = function (items, resolve) {
-  return items.find(item => item.qustionText.toString() === resolve);
+  return items.find( item => item.qustionText.toString() === resolve);
 };
 
 const getRandomInt = (min, max) => {
@@ -23,7 +23,7 @@ const clearQuestionArea = () => {
   if (document.querySelector('.question-text')) {
     document.querySelector('.question-text').remove();
   }
-}
+};
 
 const renderTextQuestion = (parent, data) => {
   const span = document.createElement('span');
@@ -32,23 +32,23 @@ const renderTextQuestion = (parent, data) => {
   span.onselectstart = 'return false';
   span.onmousedown = 'return false';
   parent.appendChild(span);
-}
+};
 
 const shuffleArray = (basicArray) => {
-  let newArr = new Array();
-  for (let elementBasicArray of basicArray) {
+  const newArr = new Array();
+  for (const elementBasicArray of basicArray) {
     newArr.push(elementBasicArray);
   }
   return newArr.sort(() => Math.random() - 0.5);
   // return newArr;
 };
 
-////  установить значение для ключа
-//// localStorage.test = 2;
-//// // получить значение по ключу
-//// alert( localStorage.test ); // 2
-//// удалить ключ
-//// delete localStorage.test;
+//  установить значение для ключа
+// localStorage.test = 2;
+// получить значение по ключу
+// alert( localStorage.test ); // 2
+// удалить ключ
+// delete localStorage.test;
 
 let i = 1;
 const choosenAnswers = [];
@@ -69,7 +69,7 @@ const renderAnswerArray = (data, parent, item) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'answer';
-    button.textContent = answer;
+    button.innerHTML = answer;
     button.onselectstart = 'return false';
     button.onmousedown = 'return false';
 
@@ -82,12 +82,12 @@ const renderAnswerArray = (data, parent, item) => {
       // allProgressItems[i].classList.add('progress-bar__item--active');
       if (i < allProgressItems.length) {
         allProgressItems[i].classList.add('progress-bar__item--active');
-        let obj = findItemByText(data, data[i].qustionText);
+        const obj = findItemByText(data, data[i].qustionText);
         renderTextQuestion(document.querySelector('.js-init-game'), obj);
         renderAnswerArray(data, document.querySelector('.js-init-game'), obj.arrayAnswers);
       }
       i++;
-      if ( allProgressItems.length + 1 == i ) {
+      if ( allProgressItems.length + 1 === i ) {
         showAnswers(data, choosenAnswers);
       }
     }
@@ -99,13 +99,10 @@ const renderAnswerArray = (data, parent, item) => {
 };
 
 const showLocal = () => {
-  for (let key in localStorage) {
-    console.log(`key=${key}`);
+  for ( const key in localStorage ) {
+    console.log(`key=${key}`); //eslint-disable-line
   }
 };
-
-
-
 
 const getData = (onSuccess) => {
   fetch(DATA_GET_URL)
@@ -131,11 +128,11 @@ const showAnswers = (arrayRightAnswer, arrayGetAnswer) => {
 
     if (choosenAnswers[i] === arrayRightAnswer[i].arrayAnswers[0]) {
       spanElement.classList.add('rightResaultAnswer');
-      spanElement.innerHTML = `В вопросе №${i + 1}. Ваш ответ правильный:   <span class="corrent-answer">${arrayRightAnswer[i].arrayAnswers[0]}</span>`;
-      pointsTesting++
+      spanElement.innerHTML = `В вопросе №${i + 1}. <br> ${arrayRightAnswer[i].qustionText} <br> Ваш ответ правильный: <span class="corrent-answer">${arrayRightAnswer[i].arrayAnswers[0]}</span>`;
+      pointsTesting++;
     } else {
       spanElement.classList.add('loseResaultAnswer');
-      spanElement.innerHTML = `В вопросе №${i + 1}. Ваш ответ &nbsp <span class="red">неправильный</span>:&nbsp<span class="not-corrent-answer">${arrayGetAnswer[i]}</span>`;
+      spanElement.innerHTML = `В вопросе №${i + 1}. <br> ${arrayRightAnswer[i].qustionText} <br> Ваш ответ <span class="wrongAnswer">неправильный</span>:&nbsp<span class="not-corrent-answer">${arrayGetAnswer[i]}</span>`;
     }
     div.appendChild(spanElement);
   }
@@ -145,6 +142,7 @@ const showAnswers = (arrayRightAnswer, arrayGetAnswer) => {
 
   const spanElement = document.createElement('span');
   spanElement.classList.add('resaultAnswer');
+  spanElement.classList.add('resaultPointsForTest');
   spanElement.onselectstart = 'return false';
   spanElement.onmousedown = 'return false';
   spanElement.innerHTML=`${localStorage.userName} получил:<br>${pointsTesting} баллов из ${choosenAnswers.length}`;

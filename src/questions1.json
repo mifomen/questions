@@ -1,107 +1,93 @@
 [
   {
     "id": 1,
-    "qustionText": "Какие высказывания относятся к определению компьютера?",
+    "qustionText": "Переменная какого типа будет при объявлении словом string",
     "questionImg": "",
     "questionAudio": "",
-    "arrayAnswers": ["универсальное устройство", "устройство для работы с информацией", "сложное устройство","программно упраавляемое устройство"]
+    "arrayAnswers": ["строка","целое число","символ","вещественное число"]
   },
   {
     "id": 2,
-    "qustionText": "qustionText2qustionText2qustionText2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2qustionText 2",
-    "questionImg": "test2",
-    "questionAudio": "name2",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4"]
+    "qustionText": "Встроенная в pascal процедура write отвечает за?",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["вывод информации","вводинформации"," включает генератор случайных чисел","запускает массив"]
   },
   {
     "id": 3,
-    "qustionText": "qustionText3qustion Text3qustion Text3qustion Text3qustion Text3qustion Text3qustion Text3",
-    "questionImg": "test3",
-    "questionAudio": "name3",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4"]
+    "qustionText": "Каким словом объявляется массив?",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["array","type",":string","massive"]
   },
   {
     "id": 4,
-    "qustionText": "qustionText4",
-    "questionImg": "test4",
-    "questionAudio": "name3",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4"]
+    "qustionText": "Какая конструкция отвечает за создание целочеисленного массива FOO из N элементов",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["FOO:array [1..n] of integer;","FOO:array [n] of string;","FOO:array [n..1] of string;","FOO:array [1..n] of real;"]
   },
   {
     "id": 5,
-    "qustionText": "qustionText5",
-    "questionImg": "test5",
-    "questionAudio": "name5",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4"]
+    "qustionText": "Операторные скобки в pascal это",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["begin end"," { }"," [ ]"," => <=="]
   },
   {
     "id": 6,
-    "qustionText": "qustionText6",
-    "questionImg": "test6",
-    "questionAudio": "name6",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4"]
+    "qustionText": "Чтобы вывести элемент массива BAR с номером 5 надо обратиться к нему как?",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["writeln(BAR[5])","writeln(BAR(5))","writeln(BAR5)","writeln(BAR|5|)"]
   },
   {
     "id": 7,
-    "qustionText": "qustionText7",
-    "questionImg": "test7",
-    "questionAudio": "name7",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4"]
+    "qustionText": "Чтобы ввести элемент массива BAR с номером 5 надо обратиться к нему как?",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["readln(BAR[5])","readln(BAR(5))","readln(BAR5)","readln(BAR|5|)"]
   },
   {
     "id": 8,
-    "qustionText": "qustionText8",
-    "questionImg": "test7",
-    "questionAudio": "name7",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4"]
+    "qustionText": "Задать элементы массива случайным числом, какая конструкция верна?",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["BAR:=random(100);","BAR:=randomize(100);","BAR:=random[100];","BAR:=rng(100);"]
   },
   {
     "id": 9,
-    "qustionText": "qustionText9",
-    "questionImg": "test7",
-    "questionAudio": "name7",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4"]
+    "qustionText": "Задать элементы массива случайным числом, какая конструкция верна?",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["BAR:=random(100);","BAR:=randomize(100);","BAR:=random[100];","BAR:=rng(100);"]
   },
   {
     "id": 10,
-    "qustionText": "qustionText10",
-    "questionImg": "test7",
-    "questionAudio": "name7",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4", "otet4"]
+    "qustionText": "Как найти максимальный элемента массива FOO состоящий из N элементов?",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["max:=FOO[1];<br> for i:=2 to n do <br> if a[i]>max then max:=a[i];","max:=FOO[1];<br> for i:=3 to n do <br> if a[i]<max then max:=a[i];","max:=FOO[1];<br> for i:=2 to n do <br> if a[i]<max then max:=a[i];","max:=FOO[1];<br> for i:=2 to m do <br> if a[i]>max then max:=a[i];"]
   },
   {
     "id": 11,
-    "qustionText": "qustionText11",
-    "questionImg": "test7",
-    "questionAudio": "name7",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4", "otet4"]
+    "qustionText": "bus: real, bus Будет типа?",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["число с дробной частью","целое числоа, строка", "массив"]
   },
   {
     "id": 12,
-    "qustionText": "qustionText12",
-    "questionImg": "test7",
-    "questionAudio": "name7",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4", "otet4"]
+    "qustionText": "Что нужно запустить, для вывода элементов массива?",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["цикл","массив","поиск","условие"]
   },
   {
     "id": 13,
-    "qustionText": "qustionText13",
-    "questionImg": "test7",
-    "questionAudio": "name7",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4", "otet4"]
-  },
-  {
-    "id": 14,
-    "qustionText": "qustionText14",
-    "questionImg": "test7",
-    "questionAudio": "name7",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4", "otet4"]
-  },
-  {
-    "id": 15,
-    "qustionText": "qustionText15",
-    "questionImg": "test7",
-    "questionAudio": "name7",
-    "arrayAnswers": ["test", "otvet2", "otver3", "otet4", "otet4"]
+    "qustionText": "Какая конструкция создаст a число из диапазона [-5;19]",
+    "questionImg": "",
+    "questionAudio": "",
+    "arrayAnswers": ["a:=random(25)-5;","a:=random(24)-5;","a:=random(24)+5;","a:=random(19,-5);"]
   }
 ]
